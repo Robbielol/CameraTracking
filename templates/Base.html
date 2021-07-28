@@ -1,0 +1,24 @@
+
+<meta charset="UTF-8">
+<title>{{title}} | Camera-Tracking</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}" />
+{% block head_style %}
+{% endblock %}
+
+  <body class='main-canvas'>
+    <nav class='navigation-bar'>
+      <ul class='header-list'>
+          <li>
+              <a href="/MainCamera.html"> Home</a>
+          </li>
+          <li>
+              <a href="/Faces.html"> Faces</a>
+          </li>
+          <li>
+              <a href="/Recordings.html"> Recordings</a>
+          </li>
+      </ul>
+    </nav>
+  </body>
+    {% block content %}
+    {% endblock %}

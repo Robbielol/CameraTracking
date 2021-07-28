@@ -10,17 +10,17 @@ def login():
 
 @app.route("/MainCamera.html", methods=['post', 'get'])
 def mainCamera():
-    return render_template("MainCamera.html")
+    return render_template("MainCamera.html", title='Main')
 
 
 @app.route("/Faces.html")
 def facesPage():
-    return render_template("Faces.html")
+    return render_template("Faces.html", title='Faces')
 
 
 @app.route("/Recordings.html")
 def RecordingsPage():
-    return render_template("Recordings.html")
+    return render_template("Recordings.html", title='Recordings')
 
 
 if __name__ == '__main__':

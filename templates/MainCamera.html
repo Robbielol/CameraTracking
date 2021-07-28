@@ -1,9 +1,11 @@
-{% extends 'Navigation.html' %}
+{% extends 'Base.html' %}
 <head>
+    {% block head_style %}
+    {% endblock %}
     <meta charset="UTF-8">
     <title>Main-Page | Camera-Tracking</title>
 </head>
-<body>
+<body class='main-canvas'>
 {% block content %}
     <p>this is the main camera page</p>
 {% endblock%}

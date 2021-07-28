@@ -1,0 +1,15 @@
+.main-canvas {
+  background-color: #9bde9b;
+}
+
+.navigation-bar{
+  background-color: #3ba13b;
+  padding: 1em;
+  position: absolute;
+}
+
+.header-list li{
+    display: inline;
+    background-color: inherit;
+    padding: 1em;
+}
