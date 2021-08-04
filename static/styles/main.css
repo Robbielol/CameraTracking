@@ -1,15 +1,69 @@
 .main-canvas {
   background-color: #9bde9b;
+  font-family: sans-serif;
 }
 
+/*Navigation Bar*/
 .navigation-bar{
+  width: 100%;
   background-color: #3ba13b;
-  padding: 1em;
-  position: absolute;
+  height: 50px;
+  display: block;
+  text-align: right;
 }
 
 .header-list li{
-    display: inline;
-    background-color: inherit;
-    padding: 1em;
+  display: inline-block;
+  list-style-type: none;
+  background-color: inherit;
+  padding: 1em;
+}
+
+.header-list a{
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Login Page CSS Classes */
+.login-body{
+    text-align: center;
+}
+
+.login-form-position{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); */
+}
+
+.outter-form-design{
+    background-color: #E4E5E3;
+    border: 2px solid #8F908D;
+    border-radius: 15px;
+    padding: 2em;
+}
+
+.primary-input-box{
+    height: 4vh;
+    width:  20vw;
+    border: 1px solid #8F908D;
+    border-radius: 5px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.primary-button{
+  background-color: #D8D9D8;
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: #3ba13b;
+  height: 3em;
+  border: 2px solid #8F908D;
+  border-radius: 5px;
+}
+
+.primary-button:focus{
+  background-color: #B9BBB9;
 }

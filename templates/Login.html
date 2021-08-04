@@ -1,13 +1,15 @@
 <head>
     <meta charset="UTF-8">
-    <link href="../styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}" />
     <title>Login | Camera-Tracking</title>
 </head>
-<body class='main-canvas'>
-    <form action="MainCamera.html" method="post">
-        <h1>Login</h1>
-        <input placeholder="Enter your username" type="text" name="username" required><br>
-        <input placeholder="Enter your password" type="text" name="password" required><br>
-        <button id="loginButton" type="submit" name="submitLogin" value="Login"> Login </button>
+<body class='login-body main-canvas'>
+  <nav class='navigation-bar header-list'></nav>
+
+    <form  class='login-form-position outter-form-design' action="MainCamera.html" method="post">
+        <h1>Welome</h1>
+        <input class='primary-input-box' placeholder="Enter your username" type="text" name="username" required><br>
+        <input class='primary-input-box' placeholder="Enter your password" type="text" name="password" required><br>
+        <button class='primary-button' id="loginButton" type="submit" name="submitLogin" value="Login"> Login </button>
     </form>
 </body>

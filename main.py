@@ -3,14 +3,19 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=['post'])
 def login():
     return render_template("Login.html")
 
 
 @app.route("/MainCamera.html", methods=['post', 'get'])
 def mainCamera():
-    return render_template("MainCamera.html", title='Main')
+    if request.method == 'post':
+        username = request.form["username"]
+        if username != "Rob":
+            return render_template("Login.html")
+        else:
+            return render_template("MainCamera.html", title='Main')
 
 
 @app.route("/Faces.html")
