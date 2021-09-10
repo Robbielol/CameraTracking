@@ -67,3 +67,9 @@
 .primary-button:focus{
   background-color: #B9BBB9;
 }
+
+/*Main Camera Page*/
+.main-video{
+  height: 1000px;
+  width: 600px;
+}

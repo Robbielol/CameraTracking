@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, Response, session, redirect, url_for
 from users import User
+from videoTracking import VideoTracking
 from database import db
 
 app = Flask(__name__)
@@ -41,6 +42,13 @@ def facesPage():
 def RecordingsPage():
     username = session['username']
     return login_authorization(username, "Recordings.html", 'Recordings')
+
+
+@app.route("/video_feed")
+def video_feed():
+    video = VideoTracking()
+    return Response(video.getVideoFeed(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 
 def login_authorization(username, htmlPage, pageTitle):
