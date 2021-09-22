@@ -8,7 +8,7 @@ app.secret_key = "secret-key"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost/Camera_Tracking'
 
 db.init_app(app)
-data = User(2, "Jake") #Not meant to be created, just a holder to create instance of class
+data = User(2, "Jake")  # Not meant to be created, just a holder to create instance of class
 loggedIn = False
 
 
@@ -23,7 +23,7 @@ def proxy():
     session['username'] = username
     login_authorization(username, "MainCamera.html", 'Main')
     return redirect(url_for("mainCamera"))
-    #return login_authorization(username, "MainCamera.html", 'Main')
+    # return login_authorization(username, "MainCamera.html", 'Main')
 
 
 @app.route("/MainCamera.html", methods=['POST', 'GET'])
@@ -47,13 +47,11 @@ def RecordingsPage():
 @app.route("/video_feed")
 def video_feed():
     video = VideoTracking()
-    return Response(video.getVideoFeed(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
+    return Response(video.getVideoFeed, mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 def login_authorization(username, htmlPage, pageTitle):
-
-    result = data.getUser(username)# returns cursorResult object
+    result = data.getUser(username)  # returns cursorResult object
     if result.rowcount > 0:
         result_username = result.first()[0]  # result rows are returned as tuples
         if username != result_username:
