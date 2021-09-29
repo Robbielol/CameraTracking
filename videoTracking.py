@@ -21,6 +21,8 @@ class VideoTracking:
             grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             grayFrame = cv2.GaussianBlur(grayFrame, (21, 21), 0)
 
+            frame = self.faceDetection(frame)
+
             if self.firstFrame is None:
                 self.firstFrame = grayFrame
                 continue
@@ -66,3 +68,14 @@ class VideoTracking:
         self.dataframe.to_csv("MotionCaptureTimes.csv")
         self.video.release()
         cv2.destroyAllWindows()
+
+    def faceDetection(self, frame):
+        face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+        gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        faces = face_cascade.detectMultiScale(gray_frame, scaleFactor=1.05, minNeighbors=5)
+
+        for x, y, w, h in faces:
+            frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 3)
+
+        return frame
