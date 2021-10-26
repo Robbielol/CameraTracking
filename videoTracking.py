@@ -2,6 +2,7 @@ import os
 
 import cv2, datetime, time, pandas
 from datetime import datetime
+from faces import Faces
 
 
 class VideoTracking:
@@ -12,6 +13,7 @@ class VideoTracking:
         self.firstFrame = None
         self.statusList = [None, None]
         self.times = []
+        self.facesObj = Faces()
 
     @property
     def getVideoFeed(self):
@@ -70,12 +72,9 @@ class VideoTracking:
         cv2.destroyAllWindows()
 
     def faceDetection(self, frame):
-        face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-        gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-        faces = face_cascade.detectMultiScale(gray_frame, scaleFactor=1.05, minNeighbors=5)
-
-        for x, y, w, h in faces:
-            frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 3)
-
-        return frame
+        frame_Copy = frame
+        frame = self.facesObj.classify_face(frame)
+        if frame is None:
+            return frame_Copy
+        else:
+            return frame
